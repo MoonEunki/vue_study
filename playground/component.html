@@ -10,7 +10,11 @@
 <body>
     <div id="app">
         <app-header></app-header>
-        <app-content></app-content>
+        <app-footer></app-footer>
+    </div>
+
+    <div id="app2">
+        <app-header></app-header>
         <app-footer></app-footer>
     </div>
 
@@ -18,23 +22,28 @@
     <script>
 
 
-        Vue.component('app-header',{
-            template:'<h1>헤더</h1>'
+        //전역컴포넌트는 모든 인스턴스에서 쓸수있음 
+        Vue.component('app-header', {
+            template: '<h1>헤더</h1>'
         });
 
-        Vue.component('app-content',{
-            template:'<div>content 하이</div>'
-        })
-
         new Vue({
-            el:'#app',
-            components:{
-                'app-footer':{
-                    template:'<footer>footer</footer>'
+            el: '#app',
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
                 }
             }
         })
 
+        new Vue({
+            el: '#app2', 
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
+            }
+        })
     </script>
 </body>
 

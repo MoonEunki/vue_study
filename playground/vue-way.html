@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <div id="app"></div>
-    <script>
+  <div id="app"></div>
+  <script>
 
-        var div = document.querySelector('#app')
-        var viewModel = {}
+    var div = document.querySelector('#app');
+    var viewModel = {};
 
-        Object.defineProperty(viewModel,'str',{
-            get:function(){
-                console.log('접근');
+      (function () {
+
+        function init() {
+          Object.defineProperty(viewModel, 'str', {
+            get: function () {
+              console.log('접근');
             },
-            set:function(newValue){
-                console.log('할당',newValue);
-                div.innerHTML=newValue;
+            set: function (newValue) {
+              console.log('할당', newValue);
+              render(newValue)
             }
-        })
-    </script>
+          })
+        }
+
+        function render(value) {
+          div.innerHTML = value;
+        }
+
+        init();
+      })();
+
+
+
+
+
+  </script>
 </body>
+
 </html>

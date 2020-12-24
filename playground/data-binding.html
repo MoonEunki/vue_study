@@ -12,20 +12,28 @@
     <!-- <p id='abc1234'> {{number}}</p> -->
     <p v-bind:id='uuid' v-bind:class='name'> {{number}}</p>
     <p> {{doubleNum}}</p>
-  
+
     <div v-if='loading'>
       Loading...
     </div>
-  
+
     <div v-else>
       test user has been logged in
     </div>
 
     <!-- v-if랑 다르게 dom에는 남아있지만 display:none 만 적용하는 방식 -->
-    <div v-show='loading'> 
+    <div v-show='loading'>
       Loading...
     </div>
-  
+
+    <!-- TODO: input 박스를 만들고 입력된값을 p태그에 출력해보기  -->
+    <input v-model="message" placeholder="edit me">
+    <p>Message is: {{ message }}</p>
+
+
+
+
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -38,7 +46,8 @@
         number: 10,
         uuid: 'abc1234',
         name: 'text-blue',
-        loading: true
+        loading: true,
+        message:''
       },
       computed: {
         doubleNum: function () {
